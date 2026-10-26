@@ -1,5 +1,4 @@
 # NovaStore — Análisis de ventas
-
 ## 1. Descripción del proyecto
 
 NovaStore es un caso práctico ficticio de análisis de datos comerciales. El objetivo es analizar los datos de ventas de la empresa para comprender su rendimiento, identificar tendencias y comparar los resultados entre ciudades y categorías de productos.

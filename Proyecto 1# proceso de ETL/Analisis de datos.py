@@ -3,6 +3,7 @@ import pandas as pd
 import mysql.connector 
 
 #Pones los datos para ingresar en la Base de Datos
+#Los parametros de conexion son del local
 
 config = {
     'user': 'root',
@@ -30,6 +31,7 @@ ON clientes.cliente_id = ventas.cliente_id
 df = pd.read_sql(query, conexion)
 #Información de la tabla antes de limpiarla y transformarla
 df_sucio = df.info()
+print(df_sucio)
 #Transformamos la columna fecha a un tipo de dato de tiempo para poder hacer analisis de tiempo
 df["fecha"] = pd.to_datetime(df['fecha'])
 #Informacion de antes de limpiar los productos y categorias de nuestro dataframe 
@@ -49,4 +51,4 @@ df["categoria"] = df["categoria"].str.replace("TecnologÃ­a", "Tecnologia")
 #que no teniamos que aceptar esos 0 y negativos para los calculos
 df = df[df["cantidad"] >= 1]
 #Aqui como ya hicimos la limpieza y la transformación ya podemos extrar el Dataframe a Excel 
-df.to_excel("analisis de ventas 2024 a 2025", index=False)
+df.to_excel("analisis de ventas 2024 a 2025.xlsx", index=False)

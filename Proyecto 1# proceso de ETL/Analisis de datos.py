@@ -18,8 +18,10 @@ JOIN clientes
 ON clientes.cliente_id = ventas.cliente_id
 """
 df = pd.read_sql(query, conexion)
+df_sucio = df.info()
 df["fecha"] = pd.to_datetime(df['fecha'])
 productos_anteriores = df["producto"].unique()
+categorias_anteriores = df["categoria"].unique()
 df["producto"] = (df["producto"].str.replace("Auriculares inalÃ¡mbricos", "Auriculares inalambricos")
 .str.replace("RatÃ³n inalÃ¡mbrico", "Raton inalambrico")
 .str.replace("Teclado mecÃ¡nico", "Teclado mecanico")
@@ -31,4 +33,4 @@ df["producto"] = (df["producto"].str.replace("Auriculares inalÃ¡mbricos", "Aur
 df["categoria"] = df["categoria"].str.replace("TecnologÃ­a", "Tecnologia")
 df = df[df["cantidad"] >= 1]
 
-df.to_excel("analisis de ventas 2024 a 2025.xlsx", index=False)
+df.to_excel("analisis de ventas 2024 a 2025", index=False)

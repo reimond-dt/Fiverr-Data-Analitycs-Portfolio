@@ -51,4 +51,4 @@ df["categoria"] = df["categoria"].str.replace("TecnologÃ­a", "Tecnologia")
 #que no teniamos que aceptar esos 0 y negativos para los calculos
 df = df[df["cantidad"] >= 1]
 #Aqui como ya hicimos la limpieza y la transformación ya podemos extrar el Dataframe a Excel 
-df.to_excel("analisis de ventas 2024 a 2025.xlsx", index=False)
+#df.to_excel("analisis de ventas 2024 a 2025.xlsx", index=False)
